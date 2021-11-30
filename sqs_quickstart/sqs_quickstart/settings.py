@@ -132,27 +132,26 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 #CELERY
 print("starting celary config")
 
-BROKER_URL = "sqs://sqs.us-east-2.amazonaws.com/523818783103/mysqsqueue"
+BROKER_URL = ""
 # It is not a good practice to embed AWS credentials here.
 # More information on this below.
 BROKER_TRANSPORT_OPTIONS = {
-    'region': 'us-east-2',
-    'polling_interval': 20,
+    
     # Number of seconds to sleep between unsuccessful polls,
     # default value is 30 seconds
 }
-CELERY_DEFAULT_QUEUE = 'mysqsqueue'
-CELERY_ACCEPT_CONTENT = ['json']
+CELERY_DEFAULT_QUEUE = ''
+CELERY_ACCEPT_CONTENT = 
 CELERY_ENABLE_REMOTE_CONTROL = False
 CELERY_SEND_EVENTS = True
 
 CELERY_TASK_PUBLISH_RETRY = True
 # Reason why we need the above is explained in Configuration Gotchas section.
-SQS_QUEUE_NAME = 'mysqsqueue'
+SQS_QUEUE_NAME = ''
 TASK_APPS = (
-   'producer',
+   '',
 )
 print("end of settings")
 
-CELERY_IMPORTS = ('producer.tasks',)
+CELERY_IMPORTS = ('',)
 
